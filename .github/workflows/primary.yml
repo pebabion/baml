@@ -44,7 +44,7 @@ jobs:
           [typescript-lint, rust-format, rust-lint, rust-lint-wasm, python-lint]
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Tools
         uses: ./.github/actions/setup-tools
@@ -105,7 +105,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Tools
         uses: ./.github/actions/setup-tools
@@ -133,7 +133,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Tools
         uses: ./.github/actions/setup-tools
@@ -153,7 +153,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Tools
         uses: ./.github/actions/setup-tools
@@ -211,7 +211,7 @@ jobs:
         test-suite: [rust-unit, python-integration]
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Tools
         uses: ./.github/actions/setup-tools
@@ -276,7 +276,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Tools
         uses: ./.github/actions/setup-tools
@@ -293,7 +293,7 @@ jobs:
         run: cargo build --release --bin baml-cli --target ${{ matrix.target }}
         working-directory: engine
       - name: Upload CLI artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: baml-cli-${{ matrix.target }}
           path: engine/target/release/baml-cli*
@@ -305,12 +305,12 @@ jobs:
     if: github.ref == 'refs/heads/canary' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
     steps:
       - name: Checkout main repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           path: main-repo
 
       - name: Checkout zed-baml repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: BoundaryML/zed-baml
           token: ${{ secrets.SAM_BAML_ZED_GITHUB_TOKEN }}
