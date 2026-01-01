@@ -14,12 +14,17 @@ export default defineConfig({
     },
   },
   test: {
+    name: 'unit',
     globals: true,
     environment: 'jsdom',
     setupFiles: ['./vitest.setup.ts'],
     include: ['src/**/*.test.{ts,tsx}'],
     exclude: ['src/**/*.browser.test.{ts,tsx}'],
     css: true,
+    // Explicitly disable browser mode for unit tests
+    browser: {
+      enabled: false,
+    },
   },
   define: {
     __DEV__: true,

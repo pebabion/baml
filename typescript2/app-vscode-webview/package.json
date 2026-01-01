@@ -14,7 +14,9 @@
     "test:unit": "vitest --config vitest.config.ts",
     "test:unit:run": "vitest run --config vitest.config.ts",
     "test:browser": "vitest --config vitest.config.browser.ts",
-    "test:browser:run": "vitest run --config vitest.config.browser.ts"
+    "test:browser:run": "vitest run --config vitest.config.browser.ts",
+    "test:hmr": "vitest run --config vitest.config.hmr.ts",
+    "test:hmr:debug": "DEBUG_HMR=1 vitest run --config vitest.config.hmr.ts"
   },
   "dependencies": {
     "pkg-playground": "workspace:*",
